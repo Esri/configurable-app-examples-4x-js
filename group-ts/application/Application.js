@@ -19,10 +19,10 @@
 
   limitations under the License.​
 */
-define(["require", "exports", "dojo/i18n!Application/nls/resources.js"], function (require, exports, i18n) {
+define(["require", "exports", "dojo/i18n!application/nls/resources.js"], function (require, exports, i18n) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    /// <amd-dependency path="dojo/i18n!Application/nls/resources.js" name="i18n" />
+    /// <amd-dependency path="dojo/i18n!application/nls/resources.js" name="i18n" />
     var CSS = {
         loading: "configurable-application--loading"
     };

@@ -20,7 +20,7 @@
   limitations under the License.​
 */
 
-/// <amd-dependency path="dojo/i18n!Application/nls/resources.js" name="i18n" />
+/// <amd-dependency path="dojo/i18n!application/nls/resources.js" name="i18n" />
 declare const i18n: any;
 
 import ApplicationBase from "ApplicationBase/ApplicationBase";
