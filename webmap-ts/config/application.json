@@ -2,7 +2,7 @@
   "appid": "",
   "group": "",
   "title": "",
-  "webmap": "",
+  "webmap": "default",
   "webscene": "",
   "portalUrl": "https://www.arcgis.com",
   "oauthappid": "",

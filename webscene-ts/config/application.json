@@ -3,7 +3,7 @@
   "group": "",
   "title": "",
   "webmap": "",
-  "webscene": "",
+  "webscene": "default",
   "portalUrl": "https://www.arcgis.com",
   "oauthappid": "",
   "proxyUrl": "",

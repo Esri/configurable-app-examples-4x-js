@@ -3,13 +3,13 @@ dojoConfig = {
   async: true,
   packages: [
     {
-      name: "application",
+      name: "Application",
       location: package_path + "/application",
       main: "Application"
     },
     {
       name: "ApplicationBase",
-      location: package_path + "../ApplicationBase",
+      location: package_path + "/../ApplicationBase",
       main: "ApplicationBase"
     },
     {
