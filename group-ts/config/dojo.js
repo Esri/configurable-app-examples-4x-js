@@ -9,7 +9,7 @@ dojoConfig = {
     },
     {
       name: "ApplicationBase",
-      location: package_path + "/ApplicationBase",
+      location: package_path + "../ApplicationBase",
       main: "ApplicationBase"
     },
     {
