@@ -28,25 +28,6 @@ body {
   height: 100%;
 }
 
-.configurable-application__view-container {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  .esri-view {
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: #fff;
-    background-image: url(../assets/loader-ie9.gif);
-  }
-}
-
 .configurable-application--loading {
   text-align: center;
   display: block;
