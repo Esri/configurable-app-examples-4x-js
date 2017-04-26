@@ -27,10 +27,9 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     }
     return t;
 };
-define(["require", "exports", "dojo/i18n!application/nls/resources.js", "ApplicationBase/support/itemUtils", "ApplicationBase/support/domHelper"], function (require, exports, i18n, itemUtils_1, domHelper_1) {
+define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationBase/support/domHelper"], function (require, exports, itemUtils_1, domHelper_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    /// <amd-dependency path="dojo/i18n!application/nls/resources.js" name="i18n" />
     var CSS = {
         loading: "configurable-application--loading"
     };

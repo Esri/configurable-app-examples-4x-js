@@ -12,7 +12,9 @@
     "./**/*"
   ],
   "exclude": [
-    "node_modules"
+    "./node_modules",
+    "./ApplicationBase",
+    "./tsrules"
   ],
   "files": [
     "./node_modules/dojo-typings/dojo/1.11/loader.d.ts",
@@ -24,3 +26,4 @@
     "./node_modules/dojo-typings/dojox/1.11/modules.d.ts"
   ]
 }
+

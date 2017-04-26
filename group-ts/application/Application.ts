@@ -20,14 +20,11 @@
   limitations under the License.​
 */
 
-/// <amd-dependency path="dojo/i18n!application/nls/resources.js" name="i18n" />
-declare const i18n: any;
-
 import ApplicationBase from "ApplicationBase/ApplicationBase";
 
 const CSS = {
   loading: "configurable-application--loading"
-}
+};
 
 class GroupExample {
 
@@ -52,6 +49,7 @@ class GroupExample {
     const { results } = base;
     const groupInfos = results.groupInfos[0];
     const groupItems = results.groupItems[0];
+
     const groupInfoResults = groupInfos.value && groupInfos.value.results;
     const groupItemsResults = groupItems.value && groupItems.value.results;
     const groupInfo = groupItemsResults && groupInfoResults[0];
@@ -60,14 +58,14 @@ class GroupExample {
       return;
     }
 
-    var html = "";
+    let html = "";
     html += "<h1>" + groupInfo.title + "</h1>";
     html += "<ol>";
-    groupItemsResults.forEach(function (item) {
+    groupItemsResults.forEach((item) => {
       html += "<li>" + item.title + "</li>";
     });
     html += "</ol>";
-    var groupNode = document.getElementById("groupContainer");
+    const groupNode = document.getElementById("groupContainer");
     groupNode.innerHTML = html;
 
     document.body.classList.remove(CSS.loading);
