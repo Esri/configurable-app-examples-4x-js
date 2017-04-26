@@ -109,8 +109,8 @@ class MapExample {
         container: viewNode,
         ...defaultViewProperties
       };
-
-      createMap(item)
+      const applicationItem = this.base.results.applicationItem as any;
+      createMap(item, applicationItem)
         .then(map => setBasemap(map, config)
           .then(map => createView(map, viewProperties)
             .then(view => setFindLocation(find, view)
