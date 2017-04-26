@@ -18,6 +18,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-tslint');
 
   grunt.initConfig({
     sass: {
@@ -48,9 +49,19 @@ module.exports = function (grunt) {
         files: ['**/*.scss'],
         tasks: ['styles']
       }
+    },
+    tslint: {
+      options: {
+        configuration: 'tslint.json',
+        fix: false
+      },
+      files: {
+        src: ['application/**/*.ts']
+      }
     }
   });
 
   grunt.registerTask('styles', 'compile & autoprefix CSS', ['sass', 'postcss']);
   grunt.registerTask("default", ["watch"]);
+  grunt.registerTask('lint:ts', ['tslint']);
 };
