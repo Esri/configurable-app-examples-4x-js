@@ -79,8 +79,9 @@ define(["require", "exports", "dojo/i18n!application/nls/resources.js", "Applica
                 var viewNode = document.createElement("div");
                 viewContainerNode.appendChild(viewNode);
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
-                var applicationItem = _this.base.results.applicationItem;
-                itemUtils_1.createMap(item, applicationItem)
+                var appItem = _this.base.results.applicationItem;
+                var appProxies = appItem.appProxies || null;
+                itemUtils_1.createMap(item, appProxies)
                     .then(function (map) { return itemUtils_1.setBasemap(map, config)
                     .then(function (map) { return itemUtils_1.createView(map, viewProperties)
                     .then(function (view) { return itemUtils_1.setFindLocation(find, view)
