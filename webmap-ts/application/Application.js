@@ -52,6 +52,7 @@ define(["require", "exports", "dojo/i18n!application/nls/resources.js", "Applica
         //
         //--------------------------------------------------------------------------
         MapExample.prototype.init = function (base) {
+            var _this = this;
             if (!base) {
                 console.error("Boilerplate is not defined");
                 return;
@@ -78,7 +79,9 @@ define(["require", "exports", "dojo/i18n!application/nls/resources.js", "Applica
                 var viewNode = document.createElement("div");
                 viewContainerNode.appendChild(viewNode);
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
-                itemUtils_1.createMap(item)
+                var appItem = _this.base.results.applicationItem;
+                var appProxies = appItem.appProxies || null;
+                itemUtils_1.createMap(item, appProxies)
                     .then(function (map) { return itemUtils_1.setBasemap(map, config)
                     .then(function (map) { return itemUtils_1.createView(map, viewProperties)
                     .then(function (view) { return itemUtils_1.setFindLocation(find, view)

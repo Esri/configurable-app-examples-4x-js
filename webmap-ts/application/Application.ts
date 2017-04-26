@@ -109,8 +109,9 @@ class MapExample {
         container: viewNode,
         ...defaultViewProperties
       };
-
-      createMap(item)
+      const appItem = this.base.results.applicationItem as any;
+      const appProxies = appItem.appProxies || null;
+      createMap(item, appProxies)
         .then(map => setBasemap(map, config)
           .then(map => createView(map, viewProperties)
             .then(view => setFindLocation(find, view)
