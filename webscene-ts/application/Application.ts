@@ -27,13 +27,13 @@ const CSS = {
 };
 
 import {
-  createMap,
+  createMapFromItem,
   createView,
-  getViewProperties,
+  getConfigViewProperties,
   getItemTitle,
   setBasemap,
-  setFindLocation,
-  setGraphic
+  findQuery,
+  goToMarker
 } from "ApplicationBase/support/itemUtils";
 
 import {
@@ -96,7 +96,7 @@ class SceneExample {
     setPageTitle(config.title);
 
     const viewContainerNode = document.getElementById("viewContainer");
-    const defaultViewProperties = getViewProperties(config);
+    const defaultViewProperties = getConfigViewProperties(config);
 
     validWebSceneItems.forEach(item => {
       const viewNode = document.createElement("div");
@@ -107,11 +107,11 @@ class SceneExample {
         ...defaultViewProperties
       };
 
-      createMap(item)
+      createMapFromItem(item)
         .then(map => setBasemap(map, config)
           .then(map => createView(map, viewProperties)
-            .then(view => setFindLocation(find, view)
-              .then(() => setGraphic(marker, view)))));
+            .then(view => findQuery(find, view)
+              .then(() => goToMarker(marker, view)))));
     });
 
     document.body.classList.remove(CSS.loading);

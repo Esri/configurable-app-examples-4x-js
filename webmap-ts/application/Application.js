@@ -72,16 +72,16 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             config.title = !config.title ? itemUtils_1.getItemTitle(firstItem) : "";
             domHelper_1.setPageTitle(config.title);
             var viewContainerNode = document.getElementById("viewContainer");
-            var defaultViewProperties = itemUtils_1.getViewProperties(config);
+            var defaultViewProperties = itemUtils_1.getConfigViewProperties(config);
             validWebMapItems.forEach(function (item) {
                 var viewNode = document.createElement("div");
                 viewContainerNode.appendChild(viewNode);
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
-                itemUtils_1.createMap(item)
+                itemUtils_1.createMapFromItem(item)
                     .then(function (map) { return itemUtils_1.setBasemap(map, config)
                     .then(function (map) { return itemUtils_1.createView(map, viewProperties)
-                    .then(function (view) { return itemUtils_1.setFindLocation(find, view)
-                    .then(function () { return itemUtils_1.setGraphic(marker, view); }); }); }); });
+                    .then(function (view) { return itemUtils_1.findQuery(find, view)
+                    .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); }); });
             });
             document.body.classList.remove(CSS.loading);
         };
