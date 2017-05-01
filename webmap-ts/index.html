@@ -26,7 +26,10 @@
       ApplicationBase,
       Application
     ) {
-        new ApplicationBase.default(applicationConfig, ApplicationBaseConfig)
+        new ApplicationBase.default({
+          config: applicationConfig,
+          settings: ApplicationBaseConfig
+        })
           .load()
           .then(function (ApplicationBase) {
             new Application.default().init(ApplicationBase);

@@ -26,12 +26,16 @@
       ApplicationBase,
       Application
     ) {
-        new ApplicationBase.default(applicationConfig, ApplicationBaseConfig)
-          .load()
-          .then(function (ApplicationBase) {
-            new Application.default().init(ApplicationBase);
-          });
-      });
+      new ApplicationBase.default({
+          config: applicationConfig,
+          settings: ApplicationBaseConfig
+        })
+        .load()
+        .then(function (ApplicationBase) {
+          new Application.default().init(ApplicationBase);
+        });
+    });
+
   </script>
 </head>
 
@@ -40,3 +44,4 @@
 </body>
 
 </html>
+
