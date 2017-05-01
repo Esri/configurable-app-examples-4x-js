@@ -71,6 +71,9 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             }
             config.title = !config.title ? itemUtils_1.getItemTitle(firstItem) : "";
             domHelper_1.setPageTitle(config.title);
+            // todo: Typings will be fixed in next release.
+            var portalItem = this.base.results.applicationItem.value;
+            var appProxies = portalItem.appProxies || null;
             var viewContainerNode = document.getElementById("viewContainer");
             var defaultViewProperties = itemUtils_1.getConfigViewProperties(config);
             validWebSceneItems.forEach(function (item) {
@@ -78,7 +81,7 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 viewContainerNode.appendChild(viewNode);
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
                 var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
-                itemUtils_1.createMapFromItem({ item: item })
+                itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies })
                     .then(function (map) { return itemUtils_1.setBasemap({
                     map: map,
                     basemapUrl: basemapUrl,

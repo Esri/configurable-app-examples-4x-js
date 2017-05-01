@@ -95,6 +95,10 @@ class SceneExample {
     config.title = !config.title ? getItemTitle(firstItem) : "";
     setPageTitle(config.title);
 
+    // todo: Typings will be fixed in next release.
+    const portalItem: any = this.base.results.applicationItem.value;
+    const appProxies = portalItem.appProxies || null;
+
     const viewContainerNode = document.getElementById("viewContainer");
     const defaultViewProperties = getConfigViewProperties(config);
 
@@ -109,7 +113,7 @@ class SceneExample {
 
       const { basemapUrl, basemapReferenceUrl } = config;
 
-      createMapFromItem({ item })
+      createMapFromItem({ item, appProxies })
         .then(map => setBasemap({
           map,
           basemapUrl,
