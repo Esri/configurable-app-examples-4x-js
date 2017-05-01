@@ -77,9 +77,14 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 var viewNode = document.createElement("div");
                 viewContainerNode.appendChild(viewNode);
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
-                itemUtils_1.createMapFromItem(item)
-                    .then(function (map) { return itemUtils_1.setBasemap(map, config)
-                    .then(function (map) { return itemUtils_1.createView(map, viewProperties)
+                var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
+                itemUtils_1.createMapFromItem({ item: item })
+                    .then(function (map) { return itemUtils_1.setBasemap({
+                    map: map,
+                    basemapUrl: basemapUrl,
+                    basemapReferenceUrl: basemapReferenceUrl
+                })
+                    .then(function (map) { return itemUtils_1.createView(__assign({}, viewProperties, { map: map }))
                     .then(function (view) { return itemUtils_1.findQuery(find, view)
                     .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); }); });
             });

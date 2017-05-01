@@ -107,9 +107,18 @@ class SceneExample {
         ...defaultViewProperties
       };
 
-      createMapFromItem(item)
-        .then(map => setBasemap(map, config)
-          .then(map => createView(map, viewProperties)
+      const { basemapUrl, basemapReferenceUrl } = config;
+
+      createMapFromItem({ item })
+        .then(map => setBasemap({
+          map,
+          basemapUrl,
+          basemapReferenceUrl
+        })
+          .then(map => createView({
+            ...viewProperties,
+            map
+          })
             .then(view => findQuery(find, view)
               .then(() => goToMarker(marker, view)))));
     });
