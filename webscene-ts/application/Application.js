@@ -52,7 +52,7 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
         //--------------------------------------------------------------------------
         SceneExample.prototype.init = function (base) {
             if (!base) {
-                console.error("Boilerplate is not defined");
+                console.error("ApplicationBase is not defined");
                 return;
             }
             domHelper_1.setPageLocale(base.locale);

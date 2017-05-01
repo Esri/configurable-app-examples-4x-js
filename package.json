@@ -1,7 +1,7 @@
 {
   "name": "configurable-app-examples-4x-js",
   "version": "0.0.1",
-  "description": "Example configurable applications using the 4x ArcGIS JavaScript Application Boilerplate",
+  "description": "Example configurable applications using the 4x ArcGIS JavaScript Application Base",
   "main": "webmap-ts/index.html",
   "repository": {
     "type": "git",

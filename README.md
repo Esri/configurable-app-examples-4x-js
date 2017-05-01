@@ -1,5 +1,5 @@
 # configurable-app-examples-js
-Configurable Application Examples using the arcgis-boilerplate-js
+Configurable Application Examples using the arcgis-base-js
 
 ## Features
 

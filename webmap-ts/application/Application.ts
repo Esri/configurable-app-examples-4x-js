@@ -68,7 +68,7 @@ class MapExample {
 
   public init(base: ApplicationBase): void {
     if (!base) {
-      console.error("Boilerplate is not defined");
+      console.error("ApplicationBase is not defined");
       return;
     }
 
