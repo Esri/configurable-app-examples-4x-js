@@ -4,8 +4,8 @@ dojoConfig = {
   packages: [
     {
       name: "Application",
-      location: package_path + "/application",
-      main: "Application"
+      location: package_path + "/app",
+      main: "main"
     },
     {
       name: "ApplicationBase",

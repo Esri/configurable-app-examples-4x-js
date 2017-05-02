@@ -97,4 +97,4 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
     }());
     exports.default = SceneExample;
 });
-//# sourceMappingURL=Application.js.map
+//# sourceMappingURL=main.js.map
