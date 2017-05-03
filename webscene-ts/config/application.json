@@ -1,8 +1,6 @@
 {
   "appid": "",
-  "group": "",
   "title": "",
-  "webmap": "",
   "webscene": "default",
   "portalUrl": "https://www.arcgis.com",
   "oauthappid": "",
@@ -18,10 +16,8 @@
     "elevationSync": {
       "url": null
     },
-    "geocode": [
-      {
-        "url": null
-      }
-    ]
+    "geocode": [{
+      "url": null
+    }]
   }
 }

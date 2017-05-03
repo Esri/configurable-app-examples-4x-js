@@ -6,17 +6,6 @@
   "localStorage": {
     "fetch": true
   },
-  "group": {
-    "default": "e8f078ba0c1546b6a6e0727f877742a5",
-    "fetchInfo": false,
-    "fetchItems": false,
-    "itemParams": {
-      "sortField": "modified",
-      "sortOrder": "desc",
-      "num": 9,
-      "start": 0
-    }
-  },
   "portal": {
     "fetch": true
   },
@@ -29,13 +18,11 @@
     "embed",
     "extent",
     "find",
-    "group",
     "level",
     "marker",
     "oauthappid",
     "portalUrl",
     "viewpoint",
-    "webmap",
     "webscene"
   ],
   "webmap": {

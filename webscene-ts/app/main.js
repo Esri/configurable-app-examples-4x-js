@@ -73,7 +73,7 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             domHelper_1.setPageTitle(config.title);
             // todo: Typings will be fixed in next release.
             var portalItem = this.base.results.applicationItem.value;
-            var appProxies = portalItem.appProxies || null;
+            var appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
             var viewContainerNode = document.getElementById("viewContainer");
             var defaultViewProperties = itemUtils_1.getConfigViewProperties(config);
             validWebSceneItems.forEach(function (item) {

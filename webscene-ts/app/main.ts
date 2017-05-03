@@ -86,7 +86,6 @@ class SceneExample {
     });
 
     const firstItem = validWebSceneItems[0];
-
     if (!firstItem) {
       console.error("Could not load an item to display");
       return;
@@ -97,7 +96,7 @@ class SceneExample {
 
     // todo: Typings will be fixed in next release.
     const portalItem: any = this.base.results.applicationItem.value;
-    const appProxies = portalItem.appProxies || null;
+    const appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
 
     const viewContainerNode = document.getElementById("viewContainer");
     const defaultViewProperties = getConfigViewProperties(config);
@@ -112,7 +111,6 @@ class SceneExample {
       };
 
       const { basemapUrl, basemapReferenceUrl } = config;
-
       createMapFromItem({ item, appProxies })
         .then(map => setBasemap({
           map,
@@ -129,7 +127,6 @@ class SceneExample {
 
     document.body.classList.remove(CSS.loading);
   }
-
 }
 
 export default SceneExample;
