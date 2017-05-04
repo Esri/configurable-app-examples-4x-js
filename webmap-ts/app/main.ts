@@ -31,7 +31,6 @@ import {
   createView,
   getConfigViewProperties,
   getItemTitle,
-  setBasemap,
   findQuery,
   goToMarker
 } from "ApplicationBase/support/itemUtils";
@@ -95,6 +94,10 @@ class MapExample {
     config.title = !config.title ? getItemTitle(firstItem) : "";
     setPageTitle(config.title);
 
+    // todo: Typings will be fixed in next release.
+    const portalItem: any = this.base.results.applicationItem.value;
+    const appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
+
     const viewContainerNode = document.getElementById("viewContainer");
     const defaultViewProperties = getConfigViewProperties(config);
 
@@ -106,21 +109,15 @@ class MapExample {
         container: viewNode,
         ...defaultViewProperties
       };
-
       const { basemapUrl, basemapReferenceUrl } = config;
 
-      createMapFromItem({ item })
-        .then(map => setBasemap({
-          map,
-          basemapUrl,
-          basemapReferenceUrl
+      createMapFromItem({ item, appProxies })
+        .then(map => createView({
+          ...viewProperties,
+          map
         })
-          .then(map => createView({
-            ...viewProperties,
-            map
-          })
-            .then(view => findQuery(find, view)
-              .then(() => goToMarker(marker, view)))));
+          .then(view => findQuery(find, view)
+            .then(() => goToMarker(marker, view))));
     });
 
     document.body.classList.remove(CSS.loading);

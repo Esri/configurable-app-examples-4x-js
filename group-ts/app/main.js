@@ -67,4 +67,4 @@ define(["require", "exports"], function (require, exports) {
     }());
     exports.default = GroupExample;
 });
-//# sourceMappingURL=Application.js.map
+//# sourceMappingURL=main.js.map

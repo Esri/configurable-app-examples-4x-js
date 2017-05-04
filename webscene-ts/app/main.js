@@ -82,14 +82,9 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
                 var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
                 itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies })
-                    .then(function (map) { return itemUtils_1.setBasemap({
-                    map: map,
-                    basemapUrl: basemapUrl,
-                    basemapReferenceUrl: basemapReferenceUrl
-                })
                     .then(function (map) { return itemUtils_1.createView(__assign({}, viewProperties, { map: map }))
                     .then(function (view) { return itemUtils_1.findQuery(find, view)
-                    .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); }); });
+                    .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); });
             });
             document.body.classList.remove(CSS.loading);
         };

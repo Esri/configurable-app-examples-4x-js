@@ -1,11 +1,10 @@
 var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/"));
 dojoConfig = {
   async: true,
-  packages: [
-    {
+  packages: [{
       name: "Application",
-      location: package_path + "/application",
-      main: "Application"
+      location: package_path + "/app",
+      main: "main"
     },
     {
       name: "ApplicationBase",

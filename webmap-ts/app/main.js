@@ -71,6 +71,9 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             }
             config.title = !config.title ? itemUtils_1.getItemTitle(firstItem) : "";
             domHelper_1.setPageTitle(config.title);
+            // todo: Typings will be fixed in next release.
+            var portalItem = this.base.results.applicationItem.value;
+            var appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
             var viewContainerNode = document.getElementById("viewContainer");
             var defaultViewProperties = itemUtils_1.getConfigViewProperties(config);
             validWebMapItems.forEach(function (item) {
@@ -78,15 +81,10 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 viewContainerNode.appendChild(viewNode);
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
                 var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
-                itemUtils_1.createMapFromItem({ item: item })
-                    .then(function (map) { return itemUtils_1.setBasemap({
-                    map: map,
-                    basemapUrl: basemapUrl,
-                    basemapReferenceUrl: basemapReferenceUrl
-                })
+                itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies })
                     .then(function (map) { return itemUtils_1.createView(__assign({}, viewProperties, { map: map }))
                     .then(function (view) { return itemUtils_1.findQuery(find, view)
-                    .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); }); });
+                    .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); });
             });
             document.body.classList.remove(CSS.loading);
         };
@@ -94,4 +92,4 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
     }());
     exports.default = MapExample;
 });
-//# sourceMappingURL=Application.js.map
+//# sourceMappingURL=main.js.map

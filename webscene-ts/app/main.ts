@@ -31,7 +31,6 @@ import {
   createView,
   getConfigViewProperties,
   getItemTitle,
-  setBasemap,
   findQuery,
   goToMarker
 } from "ApplicationBase/support/itemUtils";
@@ -109,20 +108,14 @@ class SceneExample {
         container: viewNode,
         ...defaultViewProperties
       };
-
       const { basemapUrl, basemapReferenceUrl } = config;
       createMapFromItem({ item, appProxies })
-        .then(map => setBasemap({
-          map,
-          basemapUrl,
-          basemapReferenceUrl
+        .then(map => createView({
+          ...viewProperties,
+          map
         })
-          .then(map => createView({
-            ...viewProperties,
-            map
-          })
-            .then(view => findQuery(find, view)
-              .then(() => goToMarker(marker, view)))));
+          .then(view => findQuery(find, view)
+            .then(() => goToMarker(marker, view))));
     });
 
     document.body.classList.remove(CSS.loading);
