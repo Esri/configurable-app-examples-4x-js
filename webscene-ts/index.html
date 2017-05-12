@@ -14,29 +14,7 @@
   <link rel="stylesheet" href="https://jsdev.arcgis.com/4.4/esri/css/main.css">
   <script type="text/javascript" src="./app/dojo.js"></script>
   <script type="text/javascript" src="https://jsdev.arcgis.com/4.4/"></script>
-  <script type="text/javascript">
-    require([
-      "dojo/text!config/ApplicationBase.json",
-      "dojo/text!config/application.json",
-      "ApplicationBase",
-      "Application"
-    ], function (
-      ApplicationBaseConfig,
-      applicationConfig,
-      ApplicationBase,
-      Application
-    ) {
-      new ApplicationBase({
-          config: applicationConfig,
-          settings: ApplicationBaseConfig
-        })
-        .load()
-        .then(function (ApplicationBase) {
-          new Application().init(ApplicationBase);
-        });
-    });
-
-  </script>
+  <script type="text/javascript" src="./app/init.js"></script>
 </head>
 
 <body class="configurable-application--loading">
