@@ -32,8 +32,8 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
     var CSS = {
         loading: "configurable-application--loading"
     };
-    var SceneExample = (function () {
-        function SceneExample() {
+    var MapExample = (function () {
+        function MapExample() {
             //--------------------------------------------------------------------------
             //
             //  Properties
@@ -49,7 +49,7 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
         //  Public Methods
         //
         //--------------------------------------------------------------------------
-        SceneExample.prototype.init = function (base) {
+        MapExample.prototype.init = function (base) {
             if (!base) {
                 console.error("ApplicationBase is not defined");
                 return;
@@ -59,11 +59,11 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             this.base = base;
             var config = base.config, results = base.results, settings = base.settings;
             var find = config.find, marker = config.marker;
-            var webSceneItems = results.webSceneItems;
-            var validWebSceneItems = webSceneItems.map(function (response) {
+            var webMapItems = results.webMapItems;
+            var validWebMapItems = webMapItems.map(function (response) {
                 return response.value;
             });
-            var firstItem = validWebSceneItems[0];
+            var firstItem = validWebMapItems[0];
             if (!firstItem) {
                 console.error("Could not load an item to display");
                 return;
@@ -75,7 +75,7 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             var appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
             var viewContainerNode = document.getElementById("viewContainer");
             var defaultViewProperties = itemUtils_1.getConfigViewProperties(config);
-            validWebSceneItems.forEach(function (item) {
+            validWebMapItems.forEach(function (item) {
                 var viewNode = document.createElement("div");
                 viewContainerNode.appendChild(viewNode);
                 var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
@@ -87,8 +87,8 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             });
             document.body.classList.remove(CSS.loading);
         };
-        return SceneExample;
+        return MapExample;
     }());
-    return SceneExample;
+    return MapExample;
 });
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=2Main.js.map
