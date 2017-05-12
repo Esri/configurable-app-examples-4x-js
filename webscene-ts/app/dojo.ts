@@ -12,7 +12,7 @@
     packages: [{
       name: "Application",
       location: `${packagePath}/app`,
-      main: "main"
+      main: "Main"
     },
     {
       name: "ApplicationBase",
