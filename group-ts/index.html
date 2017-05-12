@@ -26,13 +26,13 @@
       ApplicationBase,
       Application
     ) {
-      new ApplicationBase.default({
+      new ApplicationBase({
           config: applicationConfig,
           settings: ApplicationBaseConfig
         })
         .load()
         .then(function (ApplicationBase) {
-          new Application.default().init(ApplicationBase);
+          new Application().init(ApplicationBase);
         });
     });
 

@@ -20,7 +20,7 @@
   limitations under the License.​
 */
 
-import ApplicationBase from "ApplicationBase/ApplicationBase";
+import ApplicationBase = require("ApplicationBase/ApplicationBase");
 
 const CSS = {
   loading: "configurable-application--loading"
@@ -125,4 +125,4 @@ class MapExample {
 
 }
 
-export default MapExample;
+export = MapExample;

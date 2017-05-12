@@ -20,7 +20,7 @@
   limitations under the License.​
 */
 
-import ApplicationBase from "ApplicationBase/ApplicationBase";
+import ApplicationBase = require("ApplicationBase/ApplicationBase");
 
 const CSS = {
   loading: "configurable-application--loading"
@@ -122,4 +122,4 @@ class SceneExample {
   }
 }
 
-export default SceneExample;
+export = SceneExample;
