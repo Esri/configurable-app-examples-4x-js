@@ -22,6 +22,8 @@
 
 import ApplicationBase = require("ApplicationBase/ApplicationBase");
 
+import i18n = require("dojo/i18n!./nls/resources");
+
 const CSS = {
   loading: "configurable-application--loading"
 };

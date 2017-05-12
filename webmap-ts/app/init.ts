@@ -7,12 +7,11 @@ require([
   applicationBaseConfig,
   applicationConfig,
   ApplicationBase,
-  Main
+  Application
 ) => {
+  const Main = new Application();
   new ApplicationBase({
     config: applicationConfig,
     settings: applicationBaseConfig
-  }).load().then(applicationBase => {
-    new Main().init(applicationBase);
-  });
+  }).load().then(base => Main.init(base));
 });
