@@ -1,0 +1,21 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%
+}
+.configurable-application--loading {
+    text-align: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(../assets/loader-ie9.gif)
+}
+.configurable-application--loading * {
+    display: none
+}
