@@ -32,7 +32,7 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
     var CSS = {
         loading: "configurable-application--loading"
     };
-    var SceneExample = /** @class */ (function () {
+    var SceneExample = (function () {
         function SceneExample() {
             //--------------------------------------------------------------------------
             //

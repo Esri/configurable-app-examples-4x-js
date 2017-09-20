@@ -24,7 +24,7 @@ define(["require", "exports"], function (require, exports) {
     var CSS = {
         loading: "configurable-application--loading"
     };
-    var GroupExample = /** @class */ (function () {
+    var GroupExample = (function () {
         function GroupExample() {
             //--------------------------------------------------------------------------
             //
