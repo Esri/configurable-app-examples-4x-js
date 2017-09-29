@@ -32,7 +32,7 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
     var CSS = {
         loading: "configurable-application--loading"
     };
-    var MapExample = (function () {
+    var MapExample = /** @class */ (function () {
         function MapExample() {
             //--------------------------------------------------------------------------
             //

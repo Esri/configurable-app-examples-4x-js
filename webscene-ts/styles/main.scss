@@ -57,7 +57,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-image: url(../assets/loader-ie9.gif);
-  * {
+  .configurable-application__view-container {
     display: none;
   }
 }
