@@ -78,7 +78,10 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             validWebMapItems.forEach(function (item) {
                 var viewNode = document.createElement("div");
                 viewContainerNode.appendChild(viewNode);
-                var viewProperties = __assign({ container: viewNode }, defaultViewProperties);
+                var container = {
+                    container: viewNode
+                };
+                var viewProperties = __assign({}, defaultViewProperties, container);
                 var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
                 itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies })
                     .then(function (map) { return itemUtils_1.createView(__assign({}, viewProperties, { map: map }))

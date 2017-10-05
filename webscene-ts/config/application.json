@@ -1,7 +1,7 @@
 {
   "appid": "",
   "title": "",
-  "webscene": "default",
+  "webscene":["7bf6c0f430ba4f518489aaa5e750746d", "e8f078ba0c1546b6a6e0727f877742a5"],
   "portalUrl": "https://www.arcgis.com",
   "oauthappid": "",
   "proxyUrl": "",

@@ -106,10 +106,15 @@ class SceneExample {
       const viewNode = document.createElement("div");
       viewContainerNode.appendChild(viewNode);
 
-      const viewProperties = {
-        container: viewNode,
-        ...defaultViewProperties
+      const container = {
+        container: viewNode
       };
+
+      const viewProperties = {
+        ...defaultViewProperties,
+        ...container
+      };
+
       const { basemapUrl, basemapReferenceUrl } = config;
       createMapFromItem({ item, appProxies })
         .then(map => createView({
