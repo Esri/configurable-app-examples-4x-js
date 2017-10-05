@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "declaration": false,
     "noImplicitAny": false,
     "module": "amd",
     "target": "es5",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
     "jsx": "react",
-    "reactNamespace": "jsxFactory"
+    "jsxFactory": "tsx"
   },
   "include": [
     "./**/*"
   ],
   "exclude": [
     "./node_modules",
-    "./ApplicationBase",
     "./tsrules"
   ],
   "files": [
+    "./node_modules/@types/arcgis-js-api/index.d.ts",
+    "./node_modules/@esri/application-base-js/index.d.ts",
     "./node_modules/dojo-typings/dojo/1.11/loader.d.ts",
     "./node_modules/dojo-typings/dojo/1.11/index.d.ts",
     "./node_modules/dojo-typings/dojo/1.11/modules.d.ts",
@@ -26,4 +29,3 @@
     "./node_modules/dojo-typings/dojox/1.11/modules.d.ts"
   ]
 }
-

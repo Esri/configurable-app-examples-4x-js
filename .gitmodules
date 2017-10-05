@@ -1,4 +1,0 @@
-[submodule "ApplicationBase"]
-	path = ApplicationBase
-url=https://github.com/Esri/application-base-js.git
-	branch = master

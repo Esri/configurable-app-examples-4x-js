@@ -1,4 +1,3 @@
-
 /*
   Copyright 2017 Esri
 
@@ -20,29 +19,38 @@
 
   limitations under the License.​
 */
-
-var pathname = window.location.pathname;
-var packagePath = pathname.substring(0, pathname.lastIndexOf("/"));
-var localeUrlParamRegex = /locale=([\w-]+)/;
-var dojoLocale = location.search.match(localeUrlParamRegex) ?
-    RegExp.$1 :
-    undefined;
-var config = {
-    async: true,
-    locale: dojoLocale,
-    packages: [{
-        name: "Application",
-        location: packagePath + "/app",
-        main: "Main"
-    },
-    {
-        name: "ApplicationBase",
-        location: packagePath + "/../ApplicationBase",
-        main: "ApplicationBase"
-    },
-    {
-        name: "config",
-        location: packagePath + "/config"
-    }]
-};
-window["dojoConfig"] = config;
+(function () {
+  var _a = window.location, pathname = _a.pathname, search = _a.search;
+  var dist_path = pathname.substring(0, pathname.lastIndexOf("/"));
+  var application_path = dist_path.slice(0, dist_path.lastIndexOf("/"));
+  var template_application_path = application_path.slice(0, application_path.lastIndexOf("/"));
+  var localeUrlParamRegex = /locale=([\w-]+)/;
+  var dojoLocale = search.match(localeUrlParamRegex) ?
+      RegExp.$1 :
+      undefined;
+  var config = {
+      async: true,
+      locale: dojoLocale,
+      packages: [{
+              name: "Application",
+              location: dist_path + "/app",
+              main: "Main"
+          },
+          {
+              name: "ApplicationBase",
+              location: application_path + "/node_modules/@esri/application-base-js",
+              main: "ApplicationBase"
+          },
+          {
+              name: "TemplateApplicationBase",
+              location: template_application_path + "/node_modules/@esri/application-base-js",
+              main: "ApplicationBase"
+          },
+          {
+              name: "config",
+              location: dist_path + "/config"
+          }]
+  };
+  window["dojoConfig"] = config;
+})();
+//# sourceMappingURL=dojo.js.map
