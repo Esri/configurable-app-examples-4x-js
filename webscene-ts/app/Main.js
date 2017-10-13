@@ -29,6 +29,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationBase/support/domHelper"], function (require, exports, itemUtils_1, domHelper_1) {
     "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     var CSS = {
         loading: "configurable-application--loading"
     };
@@ -92,6 +93,6 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
         };
         return SceneExample;
     }());
-    return SceneExample;
+    exports.default = SceneExample;
 });
 //# sourceMappingURL=Main.js.map

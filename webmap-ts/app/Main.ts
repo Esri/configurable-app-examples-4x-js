@@ -132,4 +132,4 @@ class MapExample {
 
 }
 
-export = MapExample;
+export default MapExample;

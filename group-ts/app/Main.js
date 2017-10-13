@@ -21,6 +21,7 @@
 */
 define(["require", "exports"], function (require, exports) {
     "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     var CSS = {
         loading: "configurable-application--loading"
     };
@@ -64,6 +65,6 @@ define(["require", "exports"], function (require, exports) {
         };
         return GroupExample;
     }());
-    return GroupExample;
+    exports.default = GroupExample;
 });
 //# sourceMappingURL=Main.js.map

@@ -1,17 +1,12 @@
-require([
-  "dojo/text!config/applicationBase.json",
-  "dojo/text!config/application.json",
-  "ApplicationBase",
-  "Application"
-], (
-  applicationBaseConfig,
-  applicationConfig,
-  ApplicationBase,
-  Application
-) => {
-  const Main = new Application();
-  new ApplicationBase({
-    config: applicationConfig,
-    settings: applicationBaseConfig
-  }).load().then(base => Main.init(base));
-});
+import applicationBaseConfig = require("dojo/text!config/applicationBase.json");
+import applicationConfig = require("dojo/text!config/application.json");
+
+import ApplicationBase = require("ApplicationBase/ApplicationBase");
+
+import Application from "./Main";
+
+const Main = new Application();
+new ApplicationBase({
+  config: applicationConfig,
+  settings: applicationBaseConfig
+}).load().then(base => Main.init(base));
