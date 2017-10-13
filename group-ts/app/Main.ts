@@ -75,4 +75,4 @@ class GroupExample {
 
 }
 
-export default GroupExample;
+export = GroupExample;

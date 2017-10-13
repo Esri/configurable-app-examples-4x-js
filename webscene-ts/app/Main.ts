@@ -129,4 +129,4 @@ class SceneExample {
   }
 }
 
-export default SceneExample;
+export = SceneExample;

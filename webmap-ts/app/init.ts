@@ -3,9 +3,10 @@ import applicationConfig = require("dojo/text!config/application.json");
 
 import ApplicationBase = require("ApplicationBase/ApplicationBase");
 
-import Application from "./Main";
+import Application = require("./Main");
 
 const Main = new Application();
+
 new ApplicationBase({
   config: applicationConfig,
   settings: applicationBaseConfig

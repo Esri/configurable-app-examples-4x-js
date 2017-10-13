@@ -1,7 +1,7 @@
-define(["require", "exports", "dojo/text!config/applicationBase.json", "dojo/text!config/application.json", "ApplicationBase/ApplicationBase", "./Main"], function (require, exports, applicationBaseConfig, applicationConfig, ApplicationBase, Main_1) {
+define(["require", "exports", "dojo/text!config/applicationBase.json", "dojo/text!config/application.json", "ApplicationBase/ApplicationBase", "./Main"], function (require, exports, applicationBaseConfig, applicationConfig, ApplicationBase, Application) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var Main = new Main_1.default();
+    var Main = new Application();
     new ApplicationBase({
         config: applicationConfig,
         settings: applicationBaseConfig

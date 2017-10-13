@@ -22,9 +22,9 @@
 
 (() => {
   const { pathname, search } = window.location;
-  const dist_path = pathname.substring(0, pathname.lastIndexOf("/"));
-  const application_path = dist_path.slice(0, dist_path.lastIndexOf("/"));
-  const template_application_path = application_path.slice(0, application_path.lastIndexOf("/"));
+  const distPath = pathname.substring(0, pathname.lastIndexOf("/"));
+  const appPath = distPath.slice(0, distPath.lastIndexOf("/"));
+  const templateAppPath = appPath.slice(0, appPath.lastIndexOf("/"));
   const localeUrlParamRegex = /locale=([\w-]+)/;
   const dojoLocale = search.match(localeUrlParamRegex) ?
     RegExp.$1 :
@@ -35,22 +35,22 @@
     locale: dojoLocale,
     packages: [{
       name: "Application",
-      location: `${dist_path}/app`,
+      location: `${distPath}/app`,
       main: "Main"
     },
     {
       name: "ApplicationBase",
-      location: `${application_path}/node_modules/@esri/application-base-js`,
+      location: `${appPath}/node_modules/@esri/application-base-js`,
       main: "ApplicationBase"
     },
     {
       name: "TemplateApplicationBase",
-      location: `${template_application_path}/node_modules/@esri/application-base-js`,
+      location: `${templateAppPath}/node_modules/@esri/application-base-js`,
       main: "ApplicationBase"
     },
     {
       name: "config",
-      location: `${dist_path}/config`
+      location: `${distPath}/config`
     }]
   };
 
