@@ -20,62 +20,76 @@
   limitations under the License.​
 */
 
-define(["dojo/_base/declare", "ApplicationBase/ApplicationBase", "dojo/i18n!./nls/resources", "ApplicationBase/support/itemUtils", "ApplicationBase/support/domHelper"], function (
-  declare, ApplicationBase, i18n, itemUtils, domHelper
+define([
+  "dojo/_base/declare",
+  "ApplicationBase/ApplicationBase",
+  "dojo/i18n!./nls/resources",
+  "ApplicationBase/support/itemUtils",
+  "ApplicationBase/support/domHelper"
+], function (
+  declare,
+  ApplicationBase,
+  i18n,
+  itemUtils,
+  domHelper
 ) {
-  return declare(null, {
-    constructor: function () {
-      this.CSS = {
-        loading: "configurable-application--loading"
-      };
-      this.base = null;
-    },
-    init: function (base) {
-      if (!base) {
-        console.error("ApplicationBase is not defined");
-        return;
+    return declare(null, {
+
+      constructor: function () {
+        this.CSS = {
+          loading: "configurable-application--loading"
+        };
+        this.base = null;
+      },
+
+      init: function (base) {
+        if (!base) {
+          console.error("ApplicationBase is not defined");
+          return;
+        }
+        domHelper.setPageLocale(base.locale);
+        domHelper.setPageDirection(base.direction);
+
+        this.base = base;
+        var config = base.config, results = base.results;
+        var find = config.find, marker = config.marker;
+        var webMapItems = results.webMapItems;
+        var validWebMapItems = webMapItems.map(function (response) {
+          return response.value;
+        });
+        var firstItem = validWebMapItems[0];
+        if (!firstItem) {
+          console.error("Could not load an item to display");
+          return;
+        }
+        config.title = !config.title ? itemUtils.getItemTitle(firstItem) : null;
+        domHelper.setPageTitle(config.title);
+
+        var portalItem = this.base.results.applicationItem.value;
+        var appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
+        var viewContainerNode = document.getElementById("viewContainer");
+        var defaultViewProperties = itemUtils.getConfigViewProperties(config);
+        validWebMapItems.forEach(function (item) {
+
+          var viewNode = document.createElement("div");
+          viewContainerNode.appendChild(viewNode);
+
+          var viewProperties = defaultViewProperties;
+          viewProperties.container = viewNode;
+          itemUtils.createMapFromItem({ item: item, appProxies: appProxies })
+            .then(function (map) {
+              viewProperties.map = map;
+              return itemUtils.createView(viewProperties)
+                .then(function (view) {
+                  return itemUtils.findQuery(find, view)
+                    .then(function () { return itemUtils.goToMarker(marker, view); });
+                });
+            });
+        });
+        document.body.classList.remove(this.CSS.loading);
+
       }
-      domHelper.setPageLocale(base.locale);
-      domHelper.setPageDirection(base.direction);
 
-      this.base = base;
-      var config = base.config, results = base.results;
-      var find = config.find, marker = config.marker;
-      var webMapItems = results.webMapItems;
-      var validWebMapItems = webMapItems.map(function (response) {
-        return response.value;
-      });
-      var firstItem = validWebMapItems[0];
-      if (!firstItem) {
-        console.error("Could not load an item to display");
-        return;
-      }
-      config.title = !config.title ? itemUtils.getItemTitle(firstItem) : null;
-      domHelper.setPageTitle(config.title);
+    });
 
-      var portalItem = this.base.results.applicationItem.value;
-      var appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
-      var viewContainerNode = document.getElementById("viewContainer");
-      var defaultViewProperties = itemUtils.getConfigViewProperties(config);
-      validWebMapItems.forEach(function (item) {
-
-        var viewNode = document.createElement("div");
-        viewContainerNode.appendChild(viewNode);
-
-        var viewProperties = defaultViewProperties;
-        viewProperties.container = viewNode;
-        itemUtils.createMapFromItem({ item: item, appProxies: appProxies })
-          .then(function (map) {
-            viewProperties.map = map;
-            return itemUtils.createView(viewProperties)
-              .then(function (view) {
-                return itemUtils.findQuery(find, view)
-                  .then(function () { return itemUtils.goToMarker(marker, view); });
-              });
-          });
-      });
-      document.body.classList.remove(this.CSS.loading);
-
-    }
   });
-});
