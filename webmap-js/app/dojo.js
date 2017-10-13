@@ -19,38 +19,38 @@
 
   limitations under the License.​
 */
+
 (function () {
   var _a = window.location, pathname = _a.pathname, search = _a.search;
-  var dist_path = pathname.substring(0, pathname.lastIndexOf("/"));
-  var application_path = dist_path.slice(0, dist_path.lastIndexOf("/"));
-  var template_application_path = application_path.slice(0, application_path.lastIndexOf("/"));
+  var distPath = pathname.substring(0, pathname.lastIndexOf("/"));
+  var appPath = distPath.slice(0, distPath.lastIndexOf("/"));
+  var templateAppPath = appPath.slice(0, appPath.lastIndexOf("/"));
   var localeUrlParamRegex = /locale=([\w-]+)/;
   var dojoLocale = search.match(localeUrlParamRegex) ?
-      RegExp.$1 :
-      undefined;
+    RegExp.$1 :
+    undefined;
   var config = {
-      async: true,
-      locale: dojoLocale,
-      packages: [{
-              name: "Application",
-              location: dist_path + "/app",
-              main: "Main"
-          },
-          {
-              name: "ApplicationBase",
-              location: application_path + "/node_modules/@esri/application-base-js",
-              main: "ApplicationBase"
-          },
-          {
-              name: "TemplateApplicationBase",
-              location: template_application_path + "/node_modules/@esri/application-base-js",
-              main: "ApplicationBase"
-          },
-          {
-              name: "config",
-              location: dist_path + "/config"
-          }]
+    async: true,
+    locale: dojoLocale,
+    packages: [{
+      name: "Application",
+      location: distPath + "/app",
+      main: "Main"
+    },
+    {
+      name: "ApplicationBase",
+      location: appPath + "/node_modules/@esri/application-base-js",
+      main: "ApplicationBase"
+    },
+    {
+      name: "TemplateApplicationBase",
+      location: templateAppPath + "/node_modules/@esri/application-base-js",
+      main: "ApplicationBase"
+    },
+    {
+      name: "config",
+      location: distPath + "/config"
+    }]
   };
   window["dojoConfig"] = config;
 })();
-//# sourceMappingURL=dojo.js.map

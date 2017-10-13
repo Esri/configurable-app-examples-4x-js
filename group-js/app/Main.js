@@ -19,36 +19,37 @@
 
   limitations under the License.​
 */
+
 define(["dojo/_base/declare", "ApplicationBase/ApplicationBase", "dojo/i18n!./nls/resources"], function (
-    declare, ApplicationBase, i18n
+  declare, ApplicationBase, i18n
 ) {
-    return declare(null, {
-        constructor: function () {
-            this.CSS = {
-                loading: "configurable-application--loading"
-            };
-            this.base = null;
-        },
-        init: function (base) {
-            var results = base.results;
-            var groupInfos = results.groupInfos[0];
-            var groupItems = results.groupItems[0];
-            var groupInfoResults = groupInfos.value && groupInfos.value.results;
-            var groupItemsResults = groupItems.value && groupItems.value.results;
-            var groupInfo = groupItemsResults && groupInfoResults[0];
-            if (!groupInfos || !groupItems || !groupInfoResults || !groupItemsResults || !groupInfo) {
-                return;
-            }
-            var html = "";
-            html += "<h1>" + groupInfo.title + "</h1>";
-            html += "<ol>";
-            groupItemsResults.forEach(function (item) {
-                html += "<li>" + item.title + "</li>";
-            });
-            html += "</ol>";
-            var groupNode = document.getElementById("groupContainer");
-            groupNode.innerHTML = html;
-            document.body.classList.remove(this.CSS.loading);
-        }
-    });
+  return declare(null, {
+    constructor: function () {
+      this.CSS = {
+        loading: "configurable-application--loading"
+      };
+      this.base = null;
+    },
+    init: function (base) {
+      var results = base.results;
+      var groupInfos = results.groupInfos[0];
+      var groupItems = results.groupItems[0];
+      var groupInfoResults = groupInfos.value && groupInfos.value.results;
+      var groupItemsResults = groupItems.value && groupItems.value.results;
+      var groupInfo = groupItemsResults && groupInfoResults[0];
+      if (!groupInfos || !groupItems || !groupInfoResults || !groupItemsResults || !groupInfo) {
+        return;
+      }
+      var html = "";
+      html += "<h1>" + groupInfo.title + "</h1>";
+      html += "<ol>";
+      groupItemsResults.forEach(function (item) {
+        html += "<li>" + item.title + "</li>";
+      });
+      html += "</ol>";
+      var groupNode = document.getElementById("groupContainer");
+      groupNode.innerHTML = html;
+      document.body.classList.remove(this.CSS.loading);
+    }
+  });
 });
