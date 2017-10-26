@@ -82,19 +82,12 @@ define([
         https://developers.arcgis.com/javascript/3/jssamples/portal_oauth_popup.html
         */
 
-        // if the url of the community org is known, there is no need to fetch it via a portals/self call
+        // if the url of the community org is known, it can be retrieved from the enterprise org metadata
         if (!config.communityPortalUrl) {
-          esriRequest(config.portalUrl + '/sharing/rest/portals/self?f=json').then(
-            function(evt) {
-              // add SSL manually, WAT
-              config.communityPortalUrl = "https://" + evt.data.portalProperties.hub.settings.communityOrg.portalHostname;
-
-              delayedOAuth();
-            }
-          )
-        } else {
-          delayedOAuth();
+          config.communityPortalUrl = "https://" + base.portal.get("portalProperties.hub.settings.communityOrg.portalHostname");
         }
+        delayedOAuth();
+
 
         function delayedOAuth () {
           // we need to point folks directly to the Hub Community org during OAuth to ensure that social media logins aren't converted to free public accounts, but rather become new Level 2 users
