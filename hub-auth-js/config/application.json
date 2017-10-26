@@ -1,0 +1,28 @@
+{
+  "appid": "",
+  "group": "",
+  "title": "",
+  "webmap": "default",
+  "webscene": "",
+  "portalUrl": "https://edn.maps.arcgis.com",
+  "communityPortalUrl": "https://civic.maps.arcgis.com",
+  "oauthappid": "QVQNb3XfDzoboWS0",
+  "proxyUrl": "",
+  "units": "",
+  "helperServices": {
+    "geometry": {
+      "url": null
+    },
+    "printTask": {
+      "url": null
+    },
+    "elevationSync": {
+      "url": null
+    },
+    "geocode": [
+      {
+        "url": null
+      }
+    ]
+  }
+}
