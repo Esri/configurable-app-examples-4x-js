@@ -99,8 +99,8 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 config.communityPortalUrl = "https://" + base.portal.get("portalProperties.hub.settings.communityOrg.portalHostname");
             }
             // after a user has logged in, their token can be used to fetch premium content or run analysis that cost credits
-            function snagToken(credential) {
-                document.getElementById("active-token").innerHTML = credential.token;
+            function snagUserInfo(credential) {
+                document.getElementById("sign-in").innerHTML = '<span class="phone-hide">' + credential.userId + '</span>';
             }
             function delayedOAuth() {
                 // we need to point folks directly to the Hub Community org during OAuth to ensure that social media logins aren't converted to free public accounts, but rather become new Level 2 users
@@ -112,13 +112,13 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 });
                 IdentityManager.registerOAuthInfos([info]);
                 // check to see if a user signed in during a previous visit
-                IdentityManager.checkSignInStatus(info.portalUrl + "/sharing").then(snagToken);
+                IdentityManager.checkSignInStatus(info.portalUrl + "/sharing").then(snagUserInfo);
                 // generic opportunity to sign in after the application has loaded
                 var signInNode = document.getElementById("sign-in");
                 signInNode.addEventListener("click", function () {
                     IdentityManager.getCredential(info.portalUrl + "/sharing", {
                         oAuthPopupConfirmation: false
-                    }).then(snagToken);
+                    }).then(snagUserInfo);
                 });
                 // give folks an option to sign out
                 var signOutNode = document.getElementById("sign-out");

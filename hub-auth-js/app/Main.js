@@ -88,7 +88,6 @@ define([
         }
         delayedOAuth();
 
-
         function delayedOAuth () {
           // we need to point folks directly to the Hub Community org during OAuth to ensure that social media logins aren't converted to free public accounts, but rather become new Level 2 users
           var info = new OAuthInfo({
@@ -103,7 +102,7 @@ define([
           // check to see if a user signed in during a previous visit
           esriId.checkSignInStatus(info.portalUrl + "/sharing").then(
             function (credential) {
-              snagToken(credential);
+              snagUserInfo(credential);
             }
           );
 
@@ -112,7 +111,7 @@ define([
             esriId.getCredential(info.portalUrl + "/sharing", {
               oAuthPopupConfirmation: false
             }).then(function (credential){
-              snagToken(credential);
+              snagUserInfo(credential);
             });
           });
 
@@ -123,8 +122,8 @@ define([
           });
 
           // after a user has logged in, their token can be used to fetch premium content or run analysis that cost credits
-          function snagToken(credential) {
-            document.getElementById("active-token").innerHTML = credential.token;
+          function snagUserInfo(credential) {
+            document.getElementById("sign-in").innerHTML = '<span class="phone-hide">' + credential.userId + '</span>';
           }
         }
       }
