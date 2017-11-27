@@ -52,5 +52,5 @@
       location: distPath + "/config"
     }]
   };
-  window["dojoConfig"] = config;
+  window.dojoConfig = config;
 })();

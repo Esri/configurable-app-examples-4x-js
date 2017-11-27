@@ -19,23 +19,25 @@
     "TypeScript"
   ],
   "devDependencies": {
-    "typescript": "^2.5.3",
-    "@types/arcgis-js-api": "^4.5.0",
-    "dojo-typings": "^1.11.9",
-    "tslint": "^5.7.0",
     "@esri/application-base-js": "^0.0.2",
+    "@types/arcgis-js-api": "^4.5.0",
     "autoprefixer": "^6.3.6",
+    "dojo-typings": "^1.11.9",
     "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^2.0.0",
     "grunt-tslint": "^5.0.1",
     "npm-run-all": "^4.0.0",
-    "postcss-normalize-charset": "^1.1.0"
+    "postcss-normalize-charset": "^1.1.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3"
   },
   "scripts": {
     "start": "npm-run-all --parallel watch:grunt watch:ts",
     "watch:grunt": "grunt watch",
-    "watch:ts": "tsc --watch"
+    "watch:ts": "tsc --watch",
+    "lint": "grunt lint"
   }
 }
