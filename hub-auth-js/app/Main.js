@@ -123,7 +123,7 @@ define([
 
           // after a user has logged in, their token can be used to fetch premium content or run analysis that cost credits
           function snagUserInfo(credential) {
-            document.getElementById("sign-in").innerHTML = '<span class="phone-hide">' + credential.userId + '</span>';
+            document.getElementById("sign-in").innerHTML = "<span class=\"phone-hide\">" + credential.userId + "</span>";
           }
         }
       }

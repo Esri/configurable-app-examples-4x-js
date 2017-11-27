@@ -19,6 +19,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-tslint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.initConfig({
     sass: {
@@ -58,10 +59,16 @@ module.exports = function (grunt) {
       files: {
         src: ['application/**/*.ts']
       }
+    },
+    jshint: {
+      all: ['Gruntfile.js', 'hub-auth-js/**/*.js'],
+      ignores: ['**/node_modules/', 'tsrules/**/*.js']
     }
   });
 
   grunt.registerTask('styles', 'compile & autoprefix CSS', ['sass', 'postcss']);
   grunt.registerTask("default", ["watch"]);
   grunt.registerTask('lint:ts', ['tslint']);
+  grunt.registerTask('lint:js', ['jshint:all']);
+  grunt.registerTask('lint', ['lint:js', 'lint:ts']);
 };
