@@ -145,8 +145,8 @@ class MapExample {
     }
 
     // after a user has logged in, their token can be used to fetch premium content or run analysis that cost credits
-    function snagToken(credential: __esri.Credential): void {
-      document.getElementById("active-token").innerHTML = credential.token;
+    function snagUserInfo(credential: __esri.Credential): void {
+      document.getElementById("sign-in").innerHTML = '<span class="phone-hide">' + credential.userId + '</span>';
     }
 
     function delayedOAuth(): void {
@@ -161,14 +161,14 @@ class MapExample {
       IdentityManager.registerOAuthInfos([info]);
 
       // check to see if a user signed in during a previous visit
-      IdentityManager.checkSignInStatus(info.portalUrl + "/sharing").then(snagToken);
+      IdentityManager.checkSignInStatus(info.portalUrl + "/sharing").then(snagUserInfo);
 
       // generic opportunity to sign in after the application has loaded
       const signInNode = document.getElementById("sign-in");
       signInNode.addEventListener("click", () => {
         IdentityManager.getCredential(info.portalUrl + "/sharing", {
           oAuthPopupConfirmation: false
-        }).then(snagToken);
+        }).then(snagUserInfo);
       });
 
       // give folks an option to sign out
