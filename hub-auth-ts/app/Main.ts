@@ -158,6 +158,9 @@ class MapExample {
         popup: true
       });
 
+      // override the default behavior of force redirecting to /home/signin.html in scenarios where app is hosted alongside ArcGIS Enterprise or on *.arcgis.com
+      (IdentityManager as any).useSignInPage = false;
+
       IdentityManager.registerOAuthInfos([info]);
 
       // check to see if a user signed in during a previous visit
