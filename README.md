@@ -35,8 +35,9 @@ Other files in the repository are optional configuration files for development t
 ## Getting started
 
 1. Fork and then clone the repo.
-1. Set it up in IIS.
-1. Run examples by referring to their subfolder; e.g., if you put this repository on your server `myServer`, you would run the webmap-ts example for a webmap with an ArcGIS Online id of `1998592ad23a4b4ca239e7c7cdc4e4b9` using a URL such as
+2. Set it up in your web server.
+3. Run npm install to install app dependencies
+4. Run examples by referring to their subfolder; e.g., if you put this repository on your server `myServer`, you would run the webmap-ts example for a webmap with an ArcGIS Online id of `1998592ad23a4b4ca239e7c7cdc4e4b9` using a URL such as
 
 ```HTML
 http://myServer/configurable-app-examples-js/webmap-ts/index.html?webmap=1998592ad23a4b4ca239e7c7cdc4e4b9
