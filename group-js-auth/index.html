@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <!-- End Responsive -->
+  <link rel=icon href=assets/favicon.ico sizes="32x32" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="./app/calcite/css/calcite-web.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+
+  <script src="./app/dojo.js"></script>
+  <script src="https://js.arcgis.com/4.5/"></script>
+  <script src="./app/init.js"></script>
+</head>
+
+<body class="configurable-application--loading">
+  <header class="top-nav">
+    <div class="grid-container">
+      <div class="column-24">
+        <div>
+          <a href="https://www.arcgis.com">
+            <span class="top-nav-title left">ArcGIS Online</span>
+          </a>
+          <nav id="logInPanel" class="top-nav-list right" role="navigation" title="Sign In">
+            <button id="logIn" class="top-nav-link btn btn-transparent icon-ui-user margin-left-1 padding-right-0">
+              Sign In
+           </button>
+          </nav>
+        </div>
+        <div id="logOutPanel" class="dropdown js-dropdown right top-nav-list hide">
+          <button class="top-nav-link btn btn-transparent dropdown-btn js-dropdown-toggle icon-ui-user margin-left-1 padding-right-0" aria-haspopup="true" aria-expanded="false">
+            <span id="username"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32" class="svg-icon"><path d="M28 9v5L16 26 4 14V9l12 12L28 9z"></path></svg>
+          </button>
+          <nav class="dropdown-menu dropdown-right dropdown-menu-tight" role="menu">
+            <span id="loggedInName" class="dropdown-title">
+            </span>
+            <button id="logOut" role="menu-item" class="btn-transparent dropdown-link btn btn-fill" style="text-align:left;">Sign Out</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="configurable-application__group-container" id="groupContainer">
+    <div class="block-group block-group-3-up tablet-block-group-2-up phone-block-group-1-up">
+      <!-- Group cards generated dynamically-->
+    </div>
+  </div>
+</body>
+
+</html>
