@@ -96,9 +96,8 @@ class MapExample {
     config.title = !config.title ? getItemTitle(firstItem) : "";
     setPageTitle(config.title);
 
-    // todo: Typings will be fixed in next release.
-    const portalItem: any = this.base.results.applicationItem.value;
-    const appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
+    const portalItem: __esri.PortalItem = this.base.results.applicationItem.value;
+    const appProxies = (portalItem && portalItem.applicationProxies) ? portalItem.applicationProxies : null;
 
     const viewContainerNode = document.getElementById("viewContainer");
     const defaultViewProperties = getConfigViewProperties(config);

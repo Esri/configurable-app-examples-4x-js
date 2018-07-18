@@ -59,14 +59,9 @@ class GroupExample {
     if (!groupInfos || !groupItems || !groupInfoResults || !groupItemsResults || !groupInfo) {
       return;
     }
+    const html = `<h1>${groupInfo.title}</h1><ol>
+      ${groupItemsResults.map(item => `<li>${item.title}</li>`).join("")}</ol>`;
 
-    let html = "";
-    html += "<h1>" + groupInfo.title + "</h1>";
-    html += "<ol>";
-    groupItemsResults.forEach((item) => {
-      html += "<li>" + item.title + "</li>";
-    });
-    html += "</ol>";
     const groupNode = document.getElementById("groupContainer");
     groupNode.innerHTML = html;
 
