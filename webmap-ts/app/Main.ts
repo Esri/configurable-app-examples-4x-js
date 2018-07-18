@@ -115,8 +115,6 @@ class MapExample {
         ...container
       };
 
-      const { basemapUrl, basemapReferenceUrl } = config;
-
       createMapFromItem({ item, appProxies })
         .then(map => createView({
           ...viewProperties,

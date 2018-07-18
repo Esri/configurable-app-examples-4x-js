@@ -81,7 +81,6 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                     container: viewNode
                 };
                 var viewProperties = __assign({}, defaultViewProperties, container);
-                var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
                 itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies })
                     .then(function (map) { return itemUtils_1.createView(__assign({}, viewProperties, { map: map }))
                     .then(function (view) { return itemUtils_1.findQuery(find, view)
