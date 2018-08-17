@@ -29,7 +29,6 @@ const CSS = {
 };
 
 class GroupExample {
-
   //--------------------------------------------------------------------------
   //
   //  Properties
@@ -56,7 +55,13 @@ class GroupExample {
     const groupItemsResults = groupItems.value && groupItems.value.results;
     const groupInfo = groupItemsResults && groupInfoResults[0];
 
-    if (!groupInfos || !groupItems || !groupInfoResults || !groupItemsResults || !groupInfo) {
+    if (
+      !groupInfos ||
+      !groupItems ||
+      !groupInfoResults ||
+      !groupItemsResults ||
+      !groupInfo
+    ) {
       return;
     }
     const html = `<h1>${groupInfo.title}</h1><ol>
@@ -67,7 +72,6 @@ class GroupExample {
 
     document.body.classList.remove(CSS.loading);
   }
-
 }
 
 export = GroupExample;

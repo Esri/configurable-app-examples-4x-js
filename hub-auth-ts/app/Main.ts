@@ -53,7 +53,6 @@ import OAuthInfo = require("esri/identity/OAuthInfo");
 import IdentityManager = require("esri/identity/IdentityManager");
 
 class MapExample {
-
   //--------------------------------------------------------------------------
   //
   //  Properties
@@ -100,9 +99,9 @@ class MapExample {
     config.title = !config.title ? getItemTitle(firstItem) : "";
     setPageTitle(config.title);
 
-    // todo: Typings will be fixed in next release.
     const portalItem: any = this.base.results.applicationItem.value;
-    const appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
+    const appProxies =
+      portalItem && portalItem.appProxies ? portalItem.appProxies : null;
 
     const viewContainerNode = document.getElementById("viewContainer");
     const defaultViewProperties = getConfigViewProperties(config);
@@ -122,13 +121,14 @@ class MapExample {
 
       const { basemapUrl, basemapReferenceUrl } = config;
 
-      createMapFromItem({ item, appProxies })
-        .then(map => createView({
+      createMapFromItem({ item, appProxies }).then(map =>
+        createView({
           ...viewProperties,
           map
-        })
-          .then(view => findQuery(find, view)
-            .then(() => goToMarker(marker, view))));
+        }).then(view =>
+          findQuery(find, view).then(() => goToMarker(marker, view))
+        )
+      );
     });
 
     document.body.classList.remove(CSS.loading);
@@ -141,12 +141,17 @@ class MapExample {
 
     // if the url of the community org is known, it can be retrieved from the enterprise org metadata
     if (!config.communityPortalUrl) {
-      config.communityPortalUrl = "https://" + base.portal.get("portalProperties.hub.settings.communityOrg.portalHostname");
+      config.communityPortalUrl =
+        "https://" +
+        base.portal.get(
+          "portalProperties.hub.settings.communityOrg.portalHostname"
+        );
     }
 
     // after a user has logged in, their token can be used to fetch premium content or run analysis that cost credits
     function snagUserInfo(credential: __esri.Credential): void {
-      document.getElementById("sign-in").innerHTML = '<span class="phone-hide">' + credential.userId + '</span>';
+      document.getElementById("sign-in").innerHTML =
+        '<span class="phone-hide">' + credential.userId + "</span>";
     }
 
     function delayedOAuth(): void {
@@ -164,7 +169,9 @@ class MapExample {
       IdentityManager.registerOAuthInfos([info]);
 
       // check to see if a user signed in during a previous visit
-      IdentityManager.checkSignInStatus(info.portalUrl + "/sharing").then(snagUserInfo);
+      IdentityManager.checkSignInStatus(info.portalUrl + "/sharing").then(
+        snagUserInfo
+      );
 
       // generic opportunity to sign in after the application has loaded
       const signInNode = document.getElementById("sign-in");
@@ -184,7 +191,6 @@ class MapExample {
 
     delayedOAuth();
   }
-
 }
 
 export = MapExample;

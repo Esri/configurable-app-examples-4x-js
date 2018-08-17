@@ -48,7 +48,11 @@ define(["require", "exports"], function (require, exports) {
             var groupInfoResults = groupInfos.value && groupInfos.value.results;
             var groupItemsResults = groupItems.value && groupItems.value.results;
             var groupInfo = groupItemsResults && groupInfoResults[0];
-            if (!groupInfos || !groupItems || !groupInfoResults || !groupItemsResults || !groupInfo) {
+            if (!groupInfos ||
+                !groupItems ||
+                !groupInfoResults ||
+                !groupItemsResults ||
+                !groupInfo) {
                 return;
             }
             var html = "<h1>" + groupInfo.title + "</h1><ol>\n      " + groupItemsResults.map(function (item) { return "<li>" + item.title + "</li>"; }).join("") + "</ol>";

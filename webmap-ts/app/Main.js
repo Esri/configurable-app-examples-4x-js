@@ -70,8 +70,11 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             }
             config.title = !config.title ? itemUtils_1.getItemTitle(firstItem) : "";
             domHelper_1.setPageTitle(config.title);
-            var portalItem = this.base.results.applicationItem.value;
-            var appProxies = (portalItem && portalItem.applicationProxies) ? portalItem.applicationProxies : null;
+            var portalItem = this.base.results.applicationItem
+                .value;
+            var appProxies = portalItem && portalItem.applicationProxies
+                ? portalItem.applicationProxies
+                : null;
             var viewContainerNode = document.getElementById("viewContainer");
             var defaultViewProperties = itemUtils_1.getConfigViewProperties(config);
             validWebMapItems.forEach(function (item) {
@@ -81,10 +84,11 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                     container: viewNode
                 };
                 var viewProperties = __assign({}, defaultViewProperties, container);
-                itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies })
-                    .then(function (map) { return itemUtils_1.createView(__assign({}, viewProperties, { map: map }))
-                    .then(function (view) { return itemUtils_1.findQuery(find, view)
-                    .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); });
+                itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies }).then(function (map) {
+                    return itemUtils_1.createView(__assign({}, viewProperties, { map: map })).then(function (view) {
+                        return itemUtils_1.findQuery(find, view).then(function () { return itemUtils_1.goToMarker(marker, view); });
+                    });
+                });
             });
             document.body.classList.remove(CSS.loading);
         };

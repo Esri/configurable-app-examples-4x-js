@@ -32,4 +32,6 @@ const Main = new Application();
 new ApplicationBase({
   config: applicationConfig,
   settings: applicationBaseConfig
-}).load().then(base => Main.init(base));
+})
+  .load()
+  .then(base => Main.init(base));

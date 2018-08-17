@@ -25,13 +25,12 @@
     var appPath = distPath.slice(0, distPath.lastIndexOf("/"));
     var templateAppPath = appPath.slice(0, appPath.lastIndexOf("/"));
     var localeUrlParamRegex = /locale=([\w-]+)/;
-    var dojoLocale = search.match(localeUrlParamRegex) ?
-        RegExp.$1 :
-        undefined;
+    var dojoLocale = search.match(localeUrlParamRegex) ? RegExp.$1 : undefined;
     var config = {
         async: true,
         locale: dojoLocale,
-        packages: [{
+        packages: [
+            {
                 name: "Application",
                 location: distPath + "/app",
                 main: "Main"
@@ -49,7 +48,8 @@
             {
                 name: "config",
                 location: distPath + "/config"
-            }]
+            }
+        ]
     };
     window["dojoConfig"] = config;
 })();

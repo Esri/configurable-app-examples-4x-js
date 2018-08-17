@@ -26,6 +26,8 @@ define(["require", "exports", "dojo/text!config/applicationBase.json", "dojo/tex
     new ApplicationBase({
         config: applicationConfig,
         settings: applicationBaseConfig
-    }).load().then(function (base) { return Main.init(base); });
+    })
+        .load()
+        .then(function (base) { return Main.init(base); });
 });
 //# sourceMappingURL=init.js.map

@@ -70,9 +70,8 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             }
             config.title = !config.title ? itemUtils_1.getItemTitle(firstItem) : "";
             domHelper_1.setPageTitle(config.title);
-            // todo: Typings will be fixed in next release.
             var portalItem = this.base.results.applicationItem.value;
-            var appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
+            var appProxies = portalItem && portalItem.appProxies ? portalItem.appProxies : null;
             var viewContainerNode = document.getElementById("viewContainer");
             var defaultViewProperties = itemUtils_1.getConfigViewProperties(config);
             validWebMapItems.forEach(function (item) {
@@ -83,10 +82,11 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 };
                 var viewProperties = __assign({}, defaultViewProperties, container);
                 var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
-                itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies })
-                    .then(function (map) { return itemUtils_1.createView(__assign({}, viewProperties, { map: map }))
-                    .then(function (view) { return itemUtils_1.findQuery(find, view)
-                    .then(function () { return itemUtils_1.goToMarker(marker, view); }); }); });
+                itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies }).then(function (map) {
+                    return itemUtils_1.createView(__assign({}, viewProperties, { map: map })).then(function (view) {
+                        return itemUtils_1.findQuery(find, view).then(function () { return itemUtils_1.goToMarker(marker, view); });
+                    });
+                });
             });
             document.body.classList.remove(CSS.loading);
             /*
@@ -96,11 +96,14 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
             */
             // if the url of the community org is known, it can be retrieved from the enterprise org metadata
             if (!config.communityPortalUrl) {
-                config.communityPortalUrl = "https://" + base.portal.get("portalProperties.hub.settings.communityOrg.portalHostname");
+                config.communityPortalUrl =
+                    "https://" +
+                        base.portal.get("portalProperties.hub.settings.communityOrg.portalHostname");
             }
             // after a user has logged in, their token can be used to fetch premium content or run analysis that cost credits
             function snagUserInfo(credential) {
-                document.getElementById("sign-in").innerHTML = '<span class="phone-hide">' + credential.userId + '</span>';
+                document.getElementById("sign-in").innerHTML =
+                    '<span class="phone-hide">' + credential.userId + "</span>";
             }
             function delayedOAuth() {
                 // we need to point folks directly to the Hub Community org during OAuth to ensure that social media logins aren't converted to free public accounts, but rather become new Level 2 users

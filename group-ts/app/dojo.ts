@@ -26,32 +26,32 @@
   const appPath = distPath.slice(0, distPath.lastIndexOf("/"));
   const templateAppPath = appPath.slice(0, appPath.lastIndexOf("/"));
   const localeUrlParamRegex = /locale=([\w-]+)/;
-  const dojoLocale = search.match(localeUrlParamRegex) ?
-    RegExp.$1 :
-    undefined;
+  const dojoLocale = search.match(localeUrlParamRegex) ? RegExp.$1 : undefined;
 
   const config = {
     async: true,
     locale: dojoLocale,
-    packages: [{
-      name: "Application",
-      location: `${distPath}/app`,
-      main: "Main"
-    },
-    {
-      name: "ApplicationBase",
-      location: `${appPath}/node_modules/@esri/application-base-js`,
-      main: "ApplicationBase"
-    },
-    {
-      name: "TemplateApplicationBase",
-      location: `${templateAppPath}/node_modules/@esri/application-base-js`,
-      main: "ApplicationBase"
-    },
-    {
-      name: "config",
-      location: `${distPath}/config`
-    }]
+    packages: [
+      {
+        name: "Application",
+        location: `${distPath}/app`,
+        main: "Main"
+      },
+      {
+        name: "ApplicationBase",
+        location: `${appPath}/node_modules/@esri/application-base-js`,
+        main: "ApplicationBase"
+      },
+      {
+        name: "TemplateApplicationBase",
+        location: `${templateAppPath}/node_modules/@esri/application-base-js`,
+        main: "ApplicationBase"
+      },
+      {
+        name: "config",
+        location: `${distPath}/config`
+      }
+    ]
   };
 
   window["dojoConfig"] = config;

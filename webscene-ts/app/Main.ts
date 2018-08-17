@@ -49,7 +49,6 @@ import {
 } from "ApplicationBase/interfaces";
 
 class SceneExample {
-
   //--------------------------------------------------------------------------
   //
   //  Properties
@@ -95,8 +94,12 @@ class SceneExample {
     config.title = !config.title ? getItemTitle(firstItem) : "";
     setPageTitle(config.title);
 
-    const portalItem: __esri.PortalItem = this.base.results.applicationItem.value;
-    const appProxies = (portalItem && portalItem.applicationProxies) ? portalItem.applicationProxies : null;
+    const portalItem: __esri.PortalItem = this.base.results.applicationItem
+      .value;
+    const appProxies =
+      portalItem && portalItem.applicationProxies
+        ? portalItem.applicationProxies
+        : null;
 
     const viewContainerNode = document.getElementById("viewContainer");
     const defaultViewProperties = getConfigViewProperties(config);
@@ -114,13 +117,14 @@ class SceneExample {
         ...container
       };
 
-      createMapFromItem({ item, appProxies })
-        .then(map => createView({
+      createMapFromItem({ item, appProxies }).then(map =>
+        createView({
           ...viewProperties,
           map
-        })
-          .then(view => findQuery(find, view)
-            .then(() => goToMarker(marker, view))));
+        }).then(view =>
+          findQuery(find, view).then(() => goToMarker(marker, view))
+        )
+      );
     });
 
     document.body.classList.remove(CSS.loading);
