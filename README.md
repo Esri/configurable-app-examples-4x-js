@@ -39,10 +39,9 @@ Other files in the repository are optional configuration files for development t
 3. Run npm install to install app dependencies
 4. Run examples by referring to their subfolder; e.g., if you put this repository on your server `myServer`, you would run the webmap-ts example for a webmap with an ArcGIS Online id of `1998592ad23a4b4ca239e7c7cdc4e4b9` using a URL such as
 
-```HTML
-http://myServer/configurable-app-examples-js/webmap-ts/index.html?webmap=1998592ad23a4b4ca239e7c7cdc4e4b9
 ```
-
+http://myServer/configurable-app-examples-4x-js/webmap-ts/index.html?webmap=1998592ad23a4b4ca239e7c7cdc4e4b9
+```
 ![Example of the webmap-ts application](webmap-ts/webmap-ts.png "Example of the webmap-ts application")
 
 ## Requirements
@@ -67,7 +66,7 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 
 ## Licensing
 
-Copyright 2017 Esri
+Copyright &copy; 2017-2018 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
