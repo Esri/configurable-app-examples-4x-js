@@ -15,6 +15,8 @@ module.exports = function (grunt) {
     return plugin;
   }
 
+  const sass = require('node-sass');
+
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-sass');
@@ -24,6 +26,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     sass: {
       options: {
+        implementation: sass,
         outputStyle: "compressed"
       },
       dist: {
