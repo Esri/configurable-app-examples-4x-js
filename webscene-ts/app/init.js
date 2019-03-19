@@ -19,7 +19,7 @@
 
   limitations under the License.​
 */
-define(["require", "exports", "dojo/text!config/applicationBase.json", "dojo/text!config/application.json", "ApplicationBase/ApplicationBase", "./Main"], function (require, exports, applicationBaseConfig, applicationConfig, ApplicationBase, Application) {
+define(["require", "exports", "dojo/text!config/applicationBase.json", "dojo/text!config/application.json", "ApplicationBase/ApplicationBase", "dojo/i18n!./nls/resources", "./Main"], function (require, exports, applicationBaseConfig, applicationConfig, ApplicationBase, i18n, Application) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var Main = new Application();
@@ -28,6 +28,12 @@ define(["require", "exports", "dojo/text!config/applicationBase.json", "dojo/tex
         settings: applicationBaseConfig
     })
         .load()
-        .then(function (base) { return Main.init(base); });
+        .then(function (base) { return Main.init(base); }, function (message) {
+        if (message === "identity-manager:not-authorized") {
+            document.body.classList.remove("configurable-application--loading");
+            document.body.classList.add("app-error");
+            document.getElementById("viewContainer").innerHTML = "<h1>" + i18n.licenseError.title + "</h1><p>" + i18n.licenseError.message + "</p>";
+        }
+    });
 });
 //# sourceMappingURL=init.js.map
