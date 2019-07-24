@@ -28,6 +28,9 @@
     var dojoLocale = search.match(localeUrlParamRegex) ? RegExp.$1 : undefined;
     var config = {
         async: true,
+        has: {
+            "esri-native-promise": true
+        },
         locale: dojoLocale,
         packages: [
             {

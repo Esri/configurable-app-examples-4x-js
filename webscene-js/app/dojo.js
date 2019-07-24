@@ -31,6 +31,9 @@
     undefined;
   var config = {
     async: true,
+    has: {
+      "esri-native-promise": true
+    },
     locale: dojoLocale,
     packages: [{
       name: "Application",
