@@ -20,7 +20,7 @@
   ],
   "devDependencies": {
     "@esri/application-base-js": "0.0.5",
-    "@types/arcgis-js-api": "^4.10.0",
+    "@types/arcgis-js-api": "^4.13.0",
     "autoprefixer": "^6.3.6",
     "dojo-typings": "^1.11.9",
     "grunt": "^1.0.3",
@@ -39,5 +39,8 @@
     "watch:grunt": "grunt watch",
     "watch:ts": "tsc --watch",
     "lint": "grunt lint"
+  },
+  "dependencies": {
+    "@esri/calcite-app-components": "^4.0.0"
   }
 }
