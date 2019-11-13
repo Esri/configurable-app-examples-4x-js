@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>ArcGIS Online Configurable Apps - Calcite Webpack Example</title>
+  </head>
+  <body>
+    <noscript> JavaScript is required in order to use this app </noscript>
+    <calcite-shell>
+      <div slot="shell-header">
+        <header class="header">
+          <h2>ArcGIS Online Configurable Apps</h2>
+        </header>
+      </div>
+      <calcite-shell-panel slot="primary-panel">
+        <calcite-panel>
+          <div slot="header-content">
+            Calcite Webpack Example
+          </div>
+          <calcite-block heading="Getting started" open>
+            <calcite-block-section text="More info on Calcite Components">
+              <p>
+                <a
+                  href="https://github.com/Esri/calcite-components"
+                  target="_blank"
+                  >Calcite Components</a
+                >
+              </p>
+            </calcite-block-section>
+            <calcite-block-section text="More info on Calcite App Components">
+              <p>
+                <a
+                  href="https://github.com/Esri/calcite-app-components"
+                  target="_blank"
+                  >Calcite App Components</a
+                >
+              </p>
+            </calcite-block-section>
+          </calcite-block>
+        </calcite-panel>
+      </calcite-shell-panel>
+      <div
+        id="viewContainer"
+        class="configurable-application__view-container"
+      ></div>
+    </calcite-shell>
+    <calcite-modal aria-labelledby="modal-title">
+      <h3 slot="header" id="modal-title">
+        ArcGIS Online Configurable Apps
+      </h3>
+      <div slot="content">
+        Example using Calcite Components and Calcite App Components
+      </div>
+      <calcite-button id="modal-button" slot="primary" width="full">
+        Enter
+      </calcite-button>
+    </calcite-modal>
+  </body>
+</html>
