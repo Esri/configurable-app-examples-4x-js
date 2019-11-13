@@ -117,9 +117,16 @@ class CalciteWebpackExample {
         }).then(view => {
           findQuery(find, view).then(() => goToMarker(marker, view));
 
-          view.ui.padding = {
-            left: 375
+          const calciteShellPanel = document.querySelector(
+            "calcite-shell-panel"
+          );
+
+          view.padding = {
+            ...view.padding,
+            left: calciteShellPanel.offsetWidth
           };
+
+          view.zoom = 3;
 
           const calciteModal = document.querySelector("calcite-modal");
           calciteModal.open();

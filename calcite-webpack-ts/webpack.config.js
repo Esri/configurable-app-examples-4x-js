@@ -13,7 +13,7 @@ const stencil = require("@stencil/webpack");
 
 const path = require("path");
 
-module.exports = function (_, arg) {
+module.exports = function(_, arg) {
   const config = {
     entry: {
       index: ["./src/css/index.scss", "./src/index.ts"]
@@ -23,7 +23,7 @@ module.exports = function (_, arg) {
       publicPath: ""
     },
     devServer: {
-      port: 3000,
+      port: 3000
     },
     optimization: {
       minimizer: [
@@ -50,7 +50,8 @@ module.exports = function (_, arg) {
       ]
     },
     module: {
-      rules: [{
+      rules: [
+        {
           test: /\.tsx?$/,
           loader: "ts-loader",
           options: {
@@ -59,12 +60,14 @@ module.exports = function (_, arg) {
         },
         {
           test: /\.html$/,
-          use: [{
-            loader: "html-loader",
-            options: {
-              minimize: false
+          use: [
+            {
+              loader: "html-loader",
+              options: {
+                minimize: false
+              }
             }
-          }],
+          ],
           exclude: /node_modules/
         },
         {
@@ -110,12 +113,11 @@ module.exports = function (_, arg) {
 
       new HtmlWebPackPlugin({
         title: "ArcGIS Template Application",
-        template: "./src/index.ejs",
+        template: "./src/index.html",
         filename: "./index.html",
         favicon: "./src/assets/favicon.ico",
         chunksSortMode: "none",
-        inlineSource: ".(css)$",
-        mode: arg.mode
+        inlineSource: ".(css)$"
       }),
 
       new HtmlWebPackPlugin({
@@ -138,10 +140,12 @@ module.exports = function (_, arg) {
         description: "My ArcGIS Template Application",
         background_color: "#0079c1",
         theme_color: "#0079c1",
-        icons: [{
-          src: path.resolve("src/assets/icon.png"),
-          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-        }]
+        icons: [
+          {
+            src: path.resolve("src/assets/icon.png"),
+            sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+          }
+        ]
       }),
 
       new stencil.StencilPlugin()
@@ -167,7 +171,8 @@ module.exports = function (_, arg) {
         exclude: [/\.(?:png|jpg|jpeg|svg|gif)$/],
 
         // Define runtime caching rules.
-        runtimeCaching: [{
+        runtimeCaching: [
+          {
             // Match any request ends with .png, .jpg, .jpeg or .svg.
             urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
             // Apply a cache-first strategy.
