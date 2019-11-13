@@ -97,7 +97,7 @@ class CalciteWebpackExample {
     const viewContainerNode = document.getElementById("viewContainer");
     const defaultViewProperties = getConfigViewProperties(config);
 
-    validWebMapItems.forEach(item => {
+    validWebMapItems.forEach(async item => {
       const viewNode = document.createElement("div");
       viewContainerNode.appendChild(viewNode);
 
@@ -110,33 +110,30 @@ class CalciteWebpackExample {
         ...container
       };
 
-      createMapFromItem({ item, appProxies }).then(map =>
-        createView({
-          ...viewProperties,
-          map
-        }).then(view => {
-          findQuery(find, view).then(() => goToMarker(marker, view));
+      const map = await createMapFromItem({ item, appProxies });
+      const view = await createView({
+        ...viewProperties,
+        map
+      });
+      await findQuery(find, view);
+      goToMarker(marker, view);
 
-          const calciteShellPanel = document.querySelector(
-            "calcite-shell-panel"
-          );
+      const calciteShellPanel = document.querySelector("calcite-shell-panel");
 
-          view.padding = {
-            ...view.padding,
-            left: calciteShellPanel.offsetWidth
-          };
+      view.padding = {
+        ...view.padding,
+        left: calciteShellPanel.offsetWidth
+      };
 
-          view.zoom = 3;
+      view.zoom = 3;
 
-          const calciteModal = document.querySelector("calcite-modal");
-          calciteModal.open();
+      const calciteModal = document.querySelector("calcite-modal");
+      calciteModal.open();
 
-          const modalButton = document.getElementById("modal-button");
-          modalButton.addEventListener("click", () => {
-            calciteModal.close();
-          });
-        })
-      );
+      const modalButton = document.getElementById("modal-button");
+      modalButton.addEventListener("click", () => {
+        calciteModal.close();
+      });
     });
 
     document.body.classList.remove(CSS.loading);
