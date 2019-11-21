@@ -49,6 +49,7 @@ module.exports = function(_, arg) {
         })
       ]
     },
+    devtool: "source-map",
     module: {
       rules: [
         {
