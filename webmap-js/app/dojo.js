@@ -30,6 +30,9 @@
     RegExp.$1 :
     undefined;
   var config = {
+    has: {
+      "esri-native-promise": true
+    },
     async: true,
     locale: dojoLocale,
     packages: [{
