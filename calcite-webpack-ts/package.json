@@ -37,7 +37,8 @@
     "webpack-dev-server": "^3.1.1",
     "webpack-i18n-extractor-plugin": "^2.0.5",
     "webpack-pwa-manifest": "^4.0.0",
-    "workbox-webpack-plugin": "^4.1.1"
+    "workbox-webpack-plugin": "^4.1.1",
+    "serialize-javascript": ">=2.1.1"
   },
   "license": "Apache-2.0",
   "scripts": {

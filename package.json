@@ -33,8 +33,7 @@
     "postcss-normalize-charset": "^1.1.0",
     "tslint": "^5.20.1",
     "typescript": "^2.9.2",
-    "diff": ">=3.5.0",
-    "serialize-javascript": ">=2.1.1"
+    "diff": ">=3.5.0"
   },
   "scripts": {
     "start": "npm-run-all --parallel watch:grunt watch:ts",
