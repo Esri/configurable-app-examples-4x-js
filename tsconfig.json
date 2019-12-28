@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
+    "lib": [
+      "es6",
+      "dom",
+      "scripthost"
+    ],
     "sourceMap": true,
     "declaration": false,
     "noImplicitAny": false,
     "module": "amd",
     "target": "es5",
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "jsx": "react",
