@@ -62,7 +62,7 @@
     "@esri/application-base-js": "0.0.5",
     "@esri/calcite-app-components": "^4.4.0",
     "@esri/calcite-components": "^1.0.0-beta.12",
-    "dojo": "^1.15.0"
+    "dojo": "^1.15.3"
   },
   "arcgis": {
     "type": "jsapi"
