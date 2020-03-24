@@ -9,12 +9,10 @@ Configurable Application Examples using Esri's [arcgis-base-js](https://github.c
 This repository is a collection of example applications; each example is in its own folder:
 
 * JavaScript applications
-  * base-js: The simplest use of the arcgis-base-js
   * group-js: ArcGIS Online group lister
   * webmap-js: ArcGIS Online webmap display
   * webscene-js: ArcGIS Online webscene display
 * TypeScript applications
-  * base-ts: The simplest use of the arcgis-base-js
   * demo-ts: Demo application from the article *[TypeScript - Setting up your development environment](https://developers.arcgis.com/javascript/latest/guide/typescript-setup/index.html)*
   * group-ts: ArcGIS Online group lister
   * webmap-ts: ArcGIS Online webmap display

@@ -21,7 +21,9 @@
 */
 
 (function () {
-  var _a = window.location, pathname = _a.pathname, search = _a.search;
+  var _a = window.location,
+    pathname = _a.pathname,
+    search = _a.search;
   var distPath = pathname.substring(0, pathname.lastIndexOf("/"));
   var appPath = distPath.slice(0, distPath.lastIndexOf("/"));
   var templateAppPath = appPath.slice(0, appPath.lastIndexOf("/"));
@@ -36,24 +38,30 @@
     async: true,
     locale: dojoLocale,
     packages: [{
-      name: "Application",
-      location: distPath + "/app",
-      main: "Main"
-    },
-    {
-      name: "ApplicationBase",
-      location: appPath + "/node_modules/@esri/application-base-js",
-      main: "ApplicationBase"
-    },
-    {
-      name: "TemplateApplicationBase",
-      location: templateAppPath + "/node_modules/@esri/application-base-js",
-      main: "ApplicationBase"
-    },
-    {
-      name: "config",
-      location: distPath + "/config"
-    }]
+        name: "Application",
+        location: distPath + "/app",
+        main: "Main"
+      },
+      {
+        name: "ApplicationBase",
+        location: appPath + "/node_modules/@esri/application-base-js",
+        main: "ApplicationBase"
+      },
+      {
+        name: "TemplateApplicationBase",
+        location: templateAppPath + "/node_modules/@esri/application-base-js",
+        main: "ApplicationBase"
+      },
+      {
+        name: "config",
+        location: distPath + "/config"
+      }
+    ]
   };
   window["dojoConfig"] = config;
+  const htmlNode = document.getElementsByTagName("html")[0];
+  htmlNode.setAttribute("lang", dojoLocale);
+  if (dojoLocale === "he" || dojoLocale === "ar") {
+    htmlNode.setAttribute("dir", "rtl");
+  }
 })();
