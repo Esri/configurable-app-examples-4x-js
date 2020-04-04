@@ -83,10 +83,10 @@ define(["require", "exports", "ApplicationBase/support/itemUtils", "ApplicationB
                 var container = {
                     container: viewNode
                 };
-                var viewProperties = __assign({}, defaultViewProperties, container);
+                var viewProperties = __assign(__assign({}, defaultViewProperties), container);
                 var basemapUrl = config.basemapUrl, basemapReferenceUrl = config.basemapReferenceUrl;
                 itemUtils_1.createMapFromItem({ item: item, appProxies: appProxies }).then(function (map) {
-                    return itemUtils_1.createView(__assign({}, viewProperties, { map: map })).then(function (view) {
+                    return itemUtils_1.createView(__assign(__assign({}, viewProperties), { map: map })).then(function (view) {
                         return itemUtils_1.findQuery(find, view).then(function () { return itemUtils_1.goToMarker(marker, view); });
                     });
                 });

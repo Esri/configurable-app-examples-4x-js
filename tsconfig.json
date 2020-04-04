@@ -14,7 +14,8 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "jsx": "react",
-    "jsxFactory": "tsx"
+    "jsxFactory": "tsx",
+    "types": ["arcgis-js-api"]
   },
   "include": [
     "./**/*"
