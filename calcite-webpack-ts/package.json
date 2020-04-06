@@ -58,11 +58,11 @@
     ]
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "^4.14.2",
-    "@esri/application-base-js": "0.0.5",
-    "@esri/calcite-app-components": "^4.11.1",
-    "@esri/calcite-components": "^1.0.0-beta.20",
-    "dojo": "^1.15.3"
+    "@arcgis/webpack-plugin": "~4.13.0",
+    "@esri/application-base-js": "0.0.9",
+    "@esri/calcite-app-components": "^5.7.0",
+    "@esri/calcite-components": "^1.0.0-beta.22",
+    "dojo": "^1.16.2"
   },
   "arcgis": {
     "type": "jsapi"
