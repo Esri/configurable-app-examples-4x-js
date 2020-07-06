@@ -27,10 +27,6 @@ body {
 .configurable-application__view-container .esri-view {
   width: 100%;
   height: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #fff;
-  background-image: url(../assets/loader-ie9.gif)
 }
 
 .configurable-application--loading {
@@ -48,4 +44,3 @@ body {
 .configurable-application--loading .configurable-application__view-container {
   display: none
 }
-

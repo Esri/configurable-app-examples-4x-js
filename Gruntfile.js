@@ -1,3 +1,4 @@
+const sass = require('node-sass');
 module.exports = function (grunt) {
 
   function loadPostCssPlugin(name) {
@@ -24,6 +25,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     sass: {
       options: {
+        implementation: sass,
         outputStyle: "compressed"
       },
       dist: {
