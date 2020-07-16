@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "es6",
-      "dom",
-      "scripthost"
-    ],
+    "lib": ["es6", "dom", "scripthost"],
     "sourceMap": true,
     "declaration": false,
     "noImplicitAny": false,
@@ -17,13 +13,8 @@
     "jsxFactory": "tsx",
     "types": ["arcgis-js-api"]
   },
-  "include": [
-    "./**/*"
-  ],
-  "exclude": [
-    "./node_modules",
-    "./tsrules"
-  ],
+  "include": ["./**/*"],
+  "exclude": ["./calcite-webpack-ts", "./node_modules", "./tsrules"],
   "files": [
     "./node_modules/@types/arcgis-js-api/index.d.ts",
     "./node_modules/@esri/application-base-js/index.d.ts",
