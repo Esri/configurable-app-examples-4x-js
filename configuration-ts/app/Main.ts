@@ -53,7 +53,8 @@ import Accessor = require("esri/core/Accessor");
 import { subclass, property } from "esri/core/accessorSupport/decorators";
 
 import { esriWidgetProps } from "ApplicationBase/support/widgetConfigUtils/widgetConfigUtils";
-import { addBasemapToggle } from "ApplicationBase/support/widgetConfigUtils/basemapToggle";
+import { getBasemaps, resetBasemapsInToggle } from "ApplicationBase/support/widgetConfigUtils/basemapToggle";
+import BasemapToggle = require("esri/widgets/BasemapToggle");
 
 /** 
  * Accessor-based class used to define configuration properties
@@ -182,16 +183,38 @@ class ConfigurationExample {
   }
 
 
-  private _initPropertyWatchers(widgetProps: esriWidgetProps): void {
+  private _initPropertyWatchers(widgetProps: esriWidgetProps) {
+
+    const { view } = widgetProps;
 
     init(
       this._configurationSettings,
       "basemapToggle, basemapTogglePosition, basemapSelector, nextBasemap",
-      (newValue, oldValue, propertyName) => {
-        widgetProps.propertyName = propertyName;
-        addBasemapToggle(widgetProps).then((basemapToggle: __esri.BasemapToggle)=>{
-          this.basemapToggle = basemapToggle;
-        });
+      async (newValue, oldValue, propertyName) => {
+        const { basemapToggle, basemapTogglePosition } = this._configurationSettings;
+        const { originalBasemap, nextBasemap } = await getBasemaps(widgetProps);
+        // Decide what to do based on the property that changed
+        switch (propertyName) {
+          case "basemapToggle":
+            if (basemapToggle) {
+              this.basemapToggle = new BasemapToggle({ view, nextBasemap: nextBasemap });
+              view.ui.add(this.basemapToggle, basemapTogglePosition);
+            } else {
+              resetBasemapsInToggle(this.basemapToggle, originalBasemap, nextBasemap);
+              view.ui.remove(this.basemapToggle);
+              this.basemapToggle.destroy();
+            }
+            break;
+          case "basemapTogglePosition":
+            view.ui.move(this.basemapToggle, basemapTogglePosition);
+            break;
+          case "basemapSelector":
+            resetBasemapsInToggle(this.basemapToggle, originalBasemap, nextBasemap);
+            break;
+          case "nextBasemap":
+            resetBasemapsInToggle(this.basemapToggle, originalBasemap, nextBasemap);
+            break;
+        }
       }
     );
   }
