@@ -12,7 +12,7 @@
     "dojo-typings": "^1.11.9",
     "html-loader": "^0.5.5",
     "html-webpack-inline-source-plugin": "^0.0.10",
-    "html-webpack-plugin": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "husky": "^1.3.1",
     "intern": "^4.8.0",
     "lint-staged": "^8.1.5",
@@ -60,7 +60,7 @@
     ]
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "~4.13.0",
+    "@arcgis/webpack-plugin": "~4.22.0",
     "@esri/application-base-js": "0.0.9",
     "@esri/calcite-app-components": "^5.7.0",
     "@esri/calcite-components": "^1.0.0-beta.22",
