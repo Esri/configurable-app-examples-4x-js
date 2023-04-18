@@ -35,7 +35,7 @@
     "postcss-normalize-charset": "^4.0.1",
     "tslint": "^6.1.2",
     "typescript": "^3.9.6",
-    "updtr": "3.1.0"
+    "updtr": "4.0.0"
   },
   "scripts": {
     "deps:update": "updtr",
