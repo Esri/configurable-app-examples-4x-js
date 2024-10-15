@@ -45,6 +45,6 @@
     "lint": "grunt lint"
   },
   "dependencies": {
-    "@esri/calcite-app-components": "^6.1.0"
+    "@esri/calcite-app-components": "^6.3.0"
   }
 }
